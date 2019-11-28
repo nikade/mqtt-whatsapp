@@ -1,0 +1,7 @@
+# Project exclude paths
+/.idea
+/.gradle/
+/build/
+/logs/
+/src/main/resources/moquette_passwords.conf
+/src/main/resources/whatsapp_sender.properties

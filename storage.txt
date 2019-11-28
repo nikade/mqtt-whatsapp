@@ -1,0 +1,20 @@
+yNn7Xq9Ti2Uqbz7/lz73gA==: "Домашний 🏹"
+debugCursor: 1478
+WAToken1: "y9YDxgW15cBZ+R4Y4s7zvMrEM89FZ8g1zVs1JpCfdrE="
+AWdBivaQEj+R3Fo0uQNYMw==: []
+WAToken2: "1@uIoivq6WeaaUP+5TySqY65J5sRUzPf8I69vzFv38voXEmDfDpcrdS6zptwDi24/cLchVmSbGLczkfQ=="
+iERm3dcLmYHVwrGBAwnG8A==: [{"id":"🏹","weight":1}]
+icsU/A0sXqo4ZZkLzluEBA==: false
+logout-token: "1@d/81deN4sYz/DFRA0gsEN6fEGRYSUfWBzqiX+W9qokD0x2bEcL06wPiGRzMDdPu2+VAKo7Bru+eZQG3MsgQT78egRxuGfrGUYhEYE8f23Ai6+skzT4pTuwBviNDlxdJoG/OkZNU+tQeJgyDmqAMy7A=="
+storage_test: storage_test
+WABrowserId: "/7dGceNJgrjVwQQE1xtteg=="
+WALangPref: "ru"
+remember-me: true
+whatsapp-mutex: "x111481504:init_1574965763074"
+last-wid: "79132319336@c.us"
+mobile-platform: "android"
+vxzlprr//UMWGm/+RaTDcA==: [{"id":"global_mute","expiration":0}]
+ZHGOVyMJSDRvu0ziixy+aQ==: "0A0EcBVmCz-lcUSm8\n    "
+WASecretBundle: {"key":"3ex7n4bKHz81AFpbch96xUhf55mimQe9Era28C7zC2c=","encKey":"MDPHqYkTniSVSWllyy0OGDKOhp3qc9X08sYhI3vMv8Y=","macKey":"3ex7n4bKHz81AFpbch96xUhf55mimQe9Era28C7zC2c="}
+rDSHicXQc5C6ndwIAOpDyg==: false
+Y8mScXkB3QSXfFDihjvaNw==: false
