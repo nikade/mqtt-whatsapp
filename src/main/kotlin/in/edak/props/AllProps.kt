@@ -11,7 +11,7 @@ import java.io.InputStreamReader
 
 
 class AllProps {
-    val PROPERTIES_FILENAME = "whatsapp_sender.properties"
+    val PROPERTIES_FILENAME = "mqtt-whatsapp.properties"
 
     lateinit var allPropsMap: Map<String,Any>
 
