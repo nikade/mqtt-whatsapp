@@ -13,8 +13,6 @@ apply plugin: 'kotlin'
 group 'in.edak'
 version '1.0'
 
-sourceCompatibility = 1.8
-
 repositories {
     jcenter()
     mavenCentral()
@@ -41,12 +39,13 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 jar {
-	manifest {
-		attributes 'Main-Class': 'in.edak.main.Main'
-	}
-	doLast {
-		exclude("**/resources/moquette_passwords.conf")
-		exclude("**/resources/*sample")
-		exclude("**/resources/mqtt-whatsapp.properties")
-        }
+    manifest {
+        attributes 'Main-Class': 'in.edak.main.Main'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+        exclude("**/moquette_passwords.conf")
+        exclude("**/*sample")
+        exclude("**/mqtt-whatsapp.properties")
 }

@@ -1,0 +1,15 @@
+main.seleniumUrl=http://localhost:4444/wd/hub
+main.localStorageFile=storage.txt
+
+whatsapp.webUrl=https://web.whatsapp.com
+whatsapp.pathScanMe=//img[@alt='Scan me!']
+whatsapp.pathFindChatField=//input[@title='Поиск или новый чат']
+whatsapp.pathContactField=//span[@title='%s']
+whatsapp.pathMessageField=//div[text()='Введите сообщение']/parent::*//div[2]
+
+telega.token=1231123123:ASDASDADASD-ASASDASDASDA
+telega.chatId=123123123
+telega.proxyHost=
+telega.proxyPort=
+#telega.proxyUsername=
+#telega.proxyPassword=

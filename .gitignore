@@ -4,5 +4,5 @@
 /build/
 /logs/
 /src/main/resources/moquette_passwords.conf
-/src/main/resources/whatsapp_sender.properties
+/src/main/resources/mqtt-whatsapp.properties
 /storage.txt
