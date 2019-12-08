@@ -18,6 +18,7 @@ package `in`.edak.main
 
 import `in`.edak.messages.Telega
 import `in`.edak.messages.TelegaTopic
+import `in`.edak.mqtt.MqttListener
 import `in`.edak.props.AllProps
 import `in`.edak.props.MainProps
 import `in`.edak.props.TelegaProps
@@ -55,7 +56,7 @@ object Main {
         val classpathLoader = ClasspathResourceLoader("moquette.conf")
         val classPathConfig = ResourceLoaderConfig(classpathLoader)
         val mqttBroker = Server()
-        val listener = MqttListener(whatsAppSender,telegaErrorTopic)
+        val listener = MqttListener(whatsAppSender, telegaErrorTopic)
         mqttBroker.startServer(classPathConfig, listOf(listener))
 
         println("Broker started press [CTRL+C] to stop")
