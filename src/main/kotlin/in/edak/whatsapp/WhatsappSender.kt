@@ -8,10 +8,12 @@ import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteExecuteMethod
 import org.openqa.selenium.remote.RemoteWebDriver
 import org.openqa.selenium.remote.html5.RemoteLocalStorage
+import org.tinylog.kotlin.Logger
 import java.net.URL
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.concurrent.schedule
+import kotlin.contracts.contract
 
 class WhatsappSender(
     seleniumRemoteUrl: String,
@@ -39,6 +41,7 @@ class WhatsappSender(
     }
 
     fun sendMessage(contact: String, message: String) {
+        Logger.info { "Contact=$contact message=$message" }
         synchronized(webDriver) {
             // <input type="text" class="_2zCfw copyable-text selectable-text" data-tab="2" dir="auto" title="Поиск или новый чат" value="">
             webDriver.navigate().refresh()
@@ -56,6 +59,8 @@ class WhatsappSender(
             val messageToSend = message.replace(RN_REGEXP, "${Keys.SHIFT}${Keys.RETURN}${Keys.SHIFT}") + Keys.RETURN
             messageInputElement.sendKeys(messageToSend)
         }
+        Logger.info("sending done")
+
     }
 
     private fun getOrWaitElementXPath(
@@ -68,6 +73,9 @@ class WhatsappSender(
             val result = try {
                 wd.findElementByXPath(xpath)
             } catch (e: NoSuchElementException) {
+                null
+            } catch (e: Throwable) {
+                e.printStackTrace()
                 null
             }
             if (result != null) return result
@@ -83,12 +91,12 @@ class WhatsappSender(
     private fun scheduleWebDriverRefresher(periodMillis: Long) {
         Timer().schedule(periodMillis,periodMillis) {
             try {
-                println("refresh start")
+                Logger.info("refresh start")
                 synchronized(webDriver) {
                     getOrWaitElementXPath(webDriver, props.pathFindChatField) ?:
                         ErrorInformException("WebDriver refresher - could not get findChat field")
                 }
-                println("refresh done")
+                Logger.info("refresh done")
             } catch (e: Exception) {
                 e.printStackTrace()
             }

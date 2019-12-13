@@ -3,6 +3,5 @@
 /.gradle/
 /build/
 /logs/
-/src/main/resources/moquette_passwords.conf
 /src/main/resources/mqtt-whatsapp.properties
 /storage.txt

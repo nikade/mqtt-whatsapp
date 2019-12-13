@@ -1,5 +1,10 @@
 main.seleniumUrl=http://localhost:4444/wd/hub
 main.localStorageFile=storage.txt
+main.mqttBroker=tcp://localhost:1883
+main.mqttQueue=Столовая
+main.mqttUsername=
+main.mqttPassword=
+main.mqttClientId=mqtt-whatsapp
 
 whatsapp.webUrl=https://web.whatsapp.com
 whatsapp.pathScanMe=//img[@alt='Scan me!']

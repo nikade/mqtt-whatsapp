@@ -11,7 +11,7 @@ apply plugin: 'java'
 apply plugin: 'kotlin'
 
 group 'in.edak'
-version '1.1'
+version '2.1'
 
 repositories {
     jcenter()
@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compile 'io.moquette:moquette-broker:0.12.1'
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.2'
 
     // for cookies (de)serialization
     compile 'com.google.code.gson:gson:2.8.6'
@@ -28,6 +28,11 @@ dependencies {
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    // logging
+    compile 'org.tinylog:tinylog-api-kotlin:2.0.0'
+    compile 'org.tinylog:tinylog-impl:2.0.0'
+
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
@@ -40,12 +45,13 @@ compileTestKotlin {
 }
 jar {
     manifest {
-        attributes 'Main-Class': 'in.edak.main.Main'
+        attributes 'Main-Class': 'in.edak.main.MainScheduler'
     }
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
-        exclude("**/moquette_passwords.conf")
-        exclude("**/*sample")
-        exclude("**/mqtt-whatsapp.properties")
+    exclude("**/mqtt-whatsapp.properties")
+    exclude("**/avsugrabber.properties")
+    exclude("**/*.SF")
+    exclude("**/*.RSA")
 }
