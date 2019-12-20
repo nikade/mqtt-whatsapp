@@ -25,6 +25,7 @@ class WhatsappMqttMessageListener(private val whatsApp: WhatsappSender, private 
             val chat = topic.replace(topicFilter,"")
             whatsApp.sendMessage(chat, decodedPayload)
         } catch (e: Throwable) { // ErrorInformException) {
+            e.printStackTrace()
             if(e.message != null) errorTopic.send(e.message ?: "")
         }
     }

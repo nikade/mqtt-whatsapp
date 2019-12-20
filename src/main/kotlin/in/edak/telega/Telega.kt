@@ -52,7 +52,7 @@ class Telega(
             "chat_id" to chatId.toString(),
             "text" to msg
         )
-        doRequest(url, params)
+        doRequest(url, params).use {  }
     }
 
     fun doRequest(

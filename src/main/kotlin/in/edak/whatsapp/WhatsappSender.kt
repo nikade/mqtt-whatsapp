@@ -33,7 +33,8 @@ class WhatsappSender(
         webDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS)
         webDriver.get(props.webUrl)
         localStorageFile.loadLocalStorage(localStorage)
-        webDriver.navigate().refresh()
+        //webDriver.navigate().refresh()
+        webDriver.get(webDriver.currentUrl)
         getOrWaitElementXPath(webDriver, props.pathFindChatField, 60000L)
             ?: throw ErrorInformException("Bad page or need auth")
         localStorageFile.saveLocalStorage(localStorage)
@@ -44,15 +45,18 @@ class WhatsappSender(
         Logger.info { "Contact=$contact message=$message" }
         synchronized(webDriver) {
             // <input type="text" class="_2zCfw copyable-text selectable-text" data-tab="2" dir="auto" title="Поиск или новый чат" value="">
-            webDriver.navigate().refresh()
+            webDriver.get(webDriver.currentUrl)
+            Thread.sleep(10000)
             val findChat = getOrWaitElementXPath(webDriver, props.pathFindChatField)
                 ?: throw ErrorInformException("Не найдена строка поиска чата")
             findChat.click()
+            //webDriver.executeScript("arguments[0].click();", findChat) не работает
             findChat.sendKeys(contact)
             //<span dir="auto" title="Маша" class="_19RFN"><span class="matched-text">Маша</span></span>
             val chat = getOrWaitElementXPath(webDriver, props.pathContactField.format(contact))
                 ?: throw ErrorInformException("Не найден чат")
             chat.click()
+            // webDriver.executeScript("arguments[0].click();", chat) не работает
             //<div class="wjdTm" style="visibility: visible;">Введите сообщение</div>
             val messageInputElement = getOrWaitElementXPath(webDriver, props.pathMessageField)
                 ?: throw ErrorInformException("Не найдено поле для ввода сообщения")
